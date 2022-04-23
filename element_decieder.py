@@ -70,7 +70,7 @@ def SetGen(length,n):
             elif p==0:
                 finished = True
 
-#Ger hur bra ett ämne passar eperimentdatan           
+#Ger hur bra ett ämne passar experimentdatan           
 def Evaluate_Element(element,data):
     if len(element) > len(data):
         best_match = [0,1,2,3,4,5]
@@ -81,9 +81,9 @@ def Evaluate_Element(element,data):
            if score < best_score:
                best_match = wave_lengths
                best_score = score
-        return [best_score/6,best_match]
+        return [best_score/len(data),best_match]
     elif len(element) == len(data):
-        return [sum(abs(element-data))/6, element]
+        return [sum(abs(element-data))/len(data), element]
     else:
         best_score = 100000000000
         best_match = [i for i in range(len(element))]
